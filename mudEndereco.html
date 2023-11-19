@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="imgs/aonet.ico" type="image/x-icon">
+    <title>Script de Atendimento AONET</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="https://play-lh.googleusercontent.com/uUfkd2SAGF0XZtlE6e0CA_3QHStbO6Nl18i-4U6PPOuw-ZLwdoZWz3mKJr5J993ZOjf9" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">⠀AONET</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Problemas na Conexão</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicos.html">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Preventivos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <form id="atendimentoForm">
+            <div class="mb-3">
+                <label for="tipoProblema" class="form-label">Serviço:</label>
+                <select id="tipoProblema" class="form-select" required>
+                    <option value="Mudança de Endereço Fibra" selected>Mudança de Endereço Fibra</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="nomeCliente" class="form-label">Nome do Cliente:</label>
+                <input type="text" class="form-control" id="nomeCliente" required>
+            </div>
+            <div class="mb-3">
+                <label for="cpfCnpj" class="form-label">CPF ou CNPJ:</label>
+                <select id="tipoDocumento" class="form-select" onchange="alterarMascaraDocumento()">
+                    <option value="cpf">CPF</option>
+                    <option value="cnpj">CNPJ</option>
+                </select>
+                <input type="text" id="cpfCnpj" placeholder="Digite o CPF/CNPJ" class="form-control" oninput="formatarDocumento(this)" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefoneCliente" class="form-label">Telefone para Contato:</label>
+                <input type="tel" class="form-control" id="telefoneCliente" oninput="formatarTelefone(this)" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="antEnd" class="form-label">Antigo Endereço:</label>
+                <textarea class="form-control" id="antEnd" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="caixaSai" class="form-label">Caixa Antiga:</label>
+                <input type="text" class="form-control" id="caixaSai" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="novEnd" class="form-label">Novo Endereço:</label>
+                <textarea class="form-control" id="novEnd" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="caixaVai" class="form-label">Caixa Nova:</label>
+                <input type="text" class="form-control" id="caixaVai" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="taxaCobrada" class="form-label">Valor:</label>
+                <select id="taxaCobrada" class="form-select" required>
+                    <option value="50" selected>R$50,00</option>
+                </select>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="divTaxa">
+                <label class="form-check-label" for="divTaxa">Dividido em 2 vezes?</label>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" onclick="copiarParaAreaTransferencia()">Copiar para Área
+                    de
+                    Transferência</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/scriptMudEnd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
